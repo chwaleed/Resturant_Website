@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "body";
+  src: url("./assets/Fonts/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2");
+}
+@font-face {
+  font-family: "heading";
+  src: url("./assets/Fonts/TK3gWksYAxQ7jbsKcg8Eneo.woff2");
+}
+@keyframes border-ping-scale {
+  0% {
+    box-shadow: 0 0 0 0px rgba(212, 167, 98, 1), 0 0 0 0px rgba(212, 167, 98, 1),
+      0 0 0 0px rgba(212, 167, 98, 1), 0 0 0 0px rgba(212, 167, 98, 1);
+  }
+
+  100% {
+    box-shadow: 0 0 0 25px rgba(212, 167, 98, 0),
+      0 0 0 0px rgba(212, 167, 98, 1), 0 0 0 0px rgba(212, 167, 98, 1),
+      0 0 0 0px rgba(212, 167, 98, 1);
+  }
+}
+
+@layer utilities {
+  .border-ping-scale {
+    @apply animate-[border-ping-scale_1.6s_ease-out_infinite];
+  }
+}
