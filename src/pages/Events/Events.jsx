@@ -11,7 +11,7 @@ import event8 from "../../assets/Images/event-8.jpg";
 import GalleryCard from "../../compnents/galleryCard";
 
 function Events() {
-  const events = [
+  let events = [
     {
       title: "Wedding",
       img: event1,
@@ -45,6 +45,34 @@ function Events() {
       img: event8,
     },
   ];
+
+  const handleClick = (e) => {
+    const text = e.target.textContent;
+    if (text == "target.textContent") {
+      return events;
+    }
+    if (text == "Wedding") {
+      events = events.filter((value) => value.title == "Wedding");
+      console.log(events);
+      return events;
+    }
+    if (text == "Corporate") {
+      events = events.filter((value) => value.title == "Corporate");
+      console.log(events);
+      return events;
+    }
+    if (text == "Buffet") {
+      events = events.filter((value) => value.title == "Buffet");
+      console.log(events);
+      return events;
+    }
+    if (text == "Cocktail") {
+      events = events.filter((value) => value.title == "Cocktail");
+      console.log(events);
+      return events;
+    }
+  };
+
   return (
     <div className="md:mt-40  font-body md:gap-4 flex flex-col items-center">
       <Button2 text={"LATEST EVENTS"} x={"px-7"} y={"py-1"} />
@@ -52,11 +80,36 @@ function Events() {
         Our Social & Professional Events Gallery
       </h1>
       <div className="flex md:flex-row md:gap-10 md:mt-6">
-        <Button2 text={"ALL Events"} x={"w-[10rem] "} y={"py-2"} />
-        <Button2 text={"Wedding"} x={"w-[10rem] "} y={"py-2"} />
-        <Button2 text={"Corporate"} x={"w-[10rem] "} y={"py-2"} />
-        <Button2 text={"Cocktail"} x={"w-[10rem] "} y={"py-2"} />
-        <Button2 text={"Buffet"} x={"w-[10rem] "} y={"py-2"} />
+        <Button2
+          click={handleClick}
+          text={"All Events"}
+          x={"w-[10rem] "}
+          y={"py-2"}
+        />
+        <Button2
+          click={handleClick}
+          text={"Wedding"}
+          x={"w-[10rem] "}
+          y={"py-2"}
+        />
+        <Button2
+          click={handleClick}
+          text={"Corporate"}
+          x={"w-[10rem] "}
+          y={"py-2"}
+        />
+        <Button2
+          click={handleClick}
+          text={"Cocktail"}
+          x={"w-[10rem] "}
+          y={"py-2"}
+        />
+        <Button2
+          click={handleClick}
+          text={"Buffet"}
+          x={"w-[10rem] "}
+          y={"py-2"}
+        />
       </div>
       <div className="flex gap-10 flex-wrap justify-center pt-10 ">
         {events.map((event, index) => (
