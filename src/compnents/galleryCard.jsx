@@ -14,7 +14,7 @@ function GalleryCard({ img, text }) {
     }
   };
   return (
-    <div className="group  w-[20rem] relative rounded-md overflow-hidden  before:h-full before:w-full before:opacity-0 hover:before:opacity-70 hover:before:transition hover:before:duration-[0.6s] before:bg-primary before:absolute">
+    <div className="group max-md:w-[70%] w-[17rem] xl:w-[20rem] relative rounded-md overflow-hidden  before:h-full before:w-full before:opacity-0 hover:before:opacity-70 hover:before:transition hover:before:duration-[0.6s] before:bg-primary before:absolute">
       <h1 className="absolute opacity-0 transition duration-[0.6s] group-hover:opacity-100 font-body text-[1.6rem] font-semibold left-4 top-4">
         {text}
       </h1>
@@ -28,11 +28,11 @@ function GalleryCard({ img, text }) {
           onClick={(e) => closePreview(e)}
           className="fixed  bg-dark inset-0 flex justify-center items-center bg-black bg-opacity-80 z-20"
         >
-          <div className="bg-white p-1 relative">
-            <img src={img} className="preview-image w-[32rem]" />
+          <div className="bg-white max-md:w-[90%] p-1 relative">
+            <img src={img} className="preview-image  w-[32rem]" />
             <IoMdClose
               onClick={() => setShowPreview(false)}
-              className="absolute bottom-[-8%] right-0 font-bold text-secondary hover:text-white text-[2.4rem]"
+              className="absolute max-md:bottom-[-16%] bottom-[-8%] right-0 font-bold text-secondary hover:text-white text-[2.4rem]"
             />
           </div>
         </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button2 from "../../compnents/button2";
 import event1 from "../../assets/Images/event-1.jpg";
 import event2 from "../../assets/Images/event-2.jpg";
@@ -45,41 +45,38 @@ function Events() {
       img: event8,
     },
   ];
+  const [list, setList] = useState(events);
 
   const handleClick = (e) => {
     const text = e.target.textContent;
-    if (text == "target.textContent") {
-      return events;
-    }
-    if (text == "Wedding") {
-      events = events.filter((value) => value.title == "Wedding");
-      console.log(events);
-      return events;
-    }
-    if (text == "Corporate") {
-      events = events.filter((value) => value.title == "Corporate");
-      console.log(events);
-      return events;
-    }
-    if (text == "Buffet") {
-      events = events.filter((value) => value.title == "Buffet");
-      console.log(events);
-      return events;
-    }
-    if (text == "Cocktail") {
-      events = events.filter((value) => value.title == "Cocktail");
-      console.log(events);
-      return events;
+    if (text == "All Events") {
+      setList(events);
+    } else if (text == "Wedding") {
+      let temp = events.filter((value) => value.title == "Wedding");
+      console.log(list);
+      setList(temp);
+    } else if (text == "Corporate") {
+      let temp = events.filter((value) => value.title == "Corporate");
+      console.log(list);
+      setList(temp);
+    } else if (text == "Buffet") {
+      let temp = events.filter((value) => value.title == "Buffet");
+      console.log(list);
+      setList(temp);
+    } else if (text == "Cocktail") {
+      let temp = events.filter((value) => value.title == "Cocktail");
+      setList(temp);
+      console.log(temp);
     }
   };
 
   return (
-    <div className="md:mt-40  font-body md:gap-4 flex flex-col items-center">
+    <div className="mt-40   font-body md:gap-4 flex flex-col items-center">
       <Button2 text={"LATEST EVENTS"} x={"px-7"} y={"py-1"} />
-      <h1 className="font-heading text-[3.5rem]">
+      <h1 className="font-heading text-center px-10 max-md:mt-4 text-[1.8rem] md:text-[2.5rem] lg:text-[3.5rem]">
         Our Social & Professional Events Gallery
       </h1>
-      <div className="flex md:flex-row md:gap-10 md:mt-6">
+      <div className="flex mt-4 items-center justify-center md:flex-row flex-wrap gap-6 md:px-10 md:gap-10 md:mt-6">
         <Button2
           click={handleClick}
           text={"All Events"}
@@ -111,8 +108,9 @@ function Events() {
           y={"py-2"}
         />
       </div>
-      <div className="flex gap-10 flex-wrap justify-center pt-10 ">
-        {events.map((event, index) => (
+
+      <div className="flex max-md:flex-col  max-md:justify-center max-md:items-center 2xl:w-[82%] flex-wrap  gap-8   mx-auto pt-10 ">
+        {list.map((event, index) => (
           <GalleryCard img={event.img} text={event.title} />
         ))}
       </div>
