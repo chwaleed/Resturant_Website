@@ -11,6 +11,7 @@ import event8 from "../../assets/Images/event-8.jpg";
 import GalleryCard from "../../compnents/galleryCard";
 
 function Events() {
+  const [active, setActive] = useState(0);
   let events = [
     {
       title: "Wedding",
@@ -51,22 +52,26 @@ function Events() {
     const text = e.target.textContent;
     if (text == "All Events") {
       setList(events);
+      setActive(0);
     } else if (text == "Wedding") {
       let temp = events.filter((value) => value.title == "Wedding");
-      console.log(list);
+      setActive(1);
+
       setList(temp);
     } else if (text == "Corporate") {
       let temp = events.filter((value) => value.title == "Corporate");
-      console.log(list);
+      setActive(2);
+
       setList(temp);
     } else if (text == "Buffet") {
       let temp = events.filter((value) => value.title == "Buffet");
-      console.log(list);
+      setActive(4);
+
       setList(temp);
     } else if (text == "Cocktail") {
       let temp = events.filter((value) => value.title == "Cocktail");
       setList(temp);
-      console.log(temp);
+      setActive(3);
     }
   };
 
@@ -81,35 +86,34 @@ function Events() {
           click={handleClick}
           text={"All Events"}
           x={"w-[10rem] "}
-          y={"py-2"}
+          y={`py-2 ${active === 0 ? "bg-primary" : "bg-light"}`}
         />
         <Button2
           click={handleClick}
           text={"Wedding"}
           x={"w-[10rem] "}
-          y={"py-2"}
+          y={`py-2 ${active === 1 ? "bg-primary" : "bg-light"}`}
         />
         <Button2
           click={handleClick}
           text={"Corporate"}
           x={"w-[10rem] "}
-          y={"py-2"}
+          y={`py-2 ${active === 2 ? "bg-primary" : "bg-light"}`}
         />
         <Button2
           click={handleClick}
           text={"Cocktail"}
           x={"w-[10rem] "}
-          y={"py-2"}
+          y={`py-2 ${active === 3 ? "bg-primary" : "bg-light"}`}
         />
         <Button2
           click={handleClick}
           text={"Buffet"}
           x={"w-[10rem] "}
-          y={"py-2"}
+          y={`py-2 ${active === 4 ? "bg-primary" : "bg-light"}`}
         />
       </div>
-
-      <div className="flex max-md:flex-col  max-md:justify-center max-md:items-center 2xl:w-[82%] flex-wrap  gap-8   mx-auto pt-10 ">
+      <div className="grid max-md:grid-cols-1 md:px-10 mt-10 place-items-center grid-cols-4 gap-6 auto-rows-min    grid-flow-">
         {list.map((event, index) => (
           <GalleryCard img={event.img} text={event.title} />
         ))}

@@ -14,7 +14,7 @@ function GalleryCard({ img, text }) {
     }
   };
   return (
-    <div className="group max-md:w-[70%] w-[17rem] xl:w-[20rem] relative rounded-md overflow-hidden  before:h-full before:w-full before:opacity-0 hover:before:opacity-70 hover:before:transition hover:before:duration-[0.6s] before:bg-primary before:absolute">
+    <div className="group max-md:w-[70%] w-[13rem] xl:w-[20rem] relative rounded-md overflow-hidden  before:h-full before:w-full before:opacity-0 hover:before:opacity-70 hover:before:transition hover:before:duration-[0.6s] before:bg-primary before:absolute">
       <h1 className="absolute opacity-0 transition duration-[0.6s] group-hover:opacity-100 font-body text-[1.6rem] font-semibold left-4 top-4">
         {text}
       </h1>
