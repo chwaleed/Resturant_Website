@@ -12,6 +12,7 @@ import Hero from "./pages/Hero/Hero";
 import Aboutus from "./pages/About Us/Aboutus";
 import Services from "./pages/Services Page/Services";
 import Events from "./pages/Events/Events";
+import Menu from "./pages/Menu/Menu";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -23,6 +24,7 @@ function App() {
       <Aboutus />
       <Services />
       <Events />
+      <Menu />
       {/* <>
         <h1 className="text-[2rem] font-bold text-secondary font-heading">
           Hello kese ho

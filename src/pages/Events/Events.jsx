@@ -12,6 +12,7 @@ import GalleryCard from "../../compnents/galleryCard";
 
 function Events() {
   const [active, setActive] = useState(0);
+
   let events = [
     {
       title: "Wedding",
@@ -76,7 +77,7 @@ function Events() {
   };
 
   return (
-    <div className="mt-40   font-body md:gap-4 flex flex-col items-center">
+    <div className="mt-40 md:mt-[15rem]   font-body md:gap-4 flex flex-col items-center">
       <Button2 text={"LATEST EVENTS"} x={"px-7"} y={"py-1"} />
       <h1 className="font-heading text-center px-10 max-md:mt-4 text-[1.8rem] md:text-[2.5rem] lg:text-[3.5rem]">
         Our Social & Professional Events Gallery
