@@ -1,5 +1,4 @@
 import React from "react";
-import team1 from "../assets/Images/team-1.jpg";
 import { RiShareFill } from "react-icons/ri";
 import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
@@ -10,7 +9,7 @@ import Button1 from "./button1";
 function TeamCard(props) {
   return (
     <div className="group relative transition duration-[0.8s] w-[20rem] hover:bg-primary rounded-md overflow-hidden ml-10 mb-8 font-body flex-col flex gap-3 bg-dark">
-      <img src={team1} className="w-full" />
+      <img src={props.img} className="w-full" />
       <div className="flex flex-col gap-1 mb-5 items-center">
         <h1 className="group-hover:text-dark transition duration-[0.8s] text-primary font-semibold text-[1.5rem]">
           {props.name}

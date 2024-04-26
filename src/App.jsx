@@ -14,6 +14,7 @@ import Services from "./pages/Services Page/Services";
 import Events from "./pages/Events/Events";
 import Menu from "./pages/Menu/Menu";
 import Booking from "./pages/Book Us/Booking";
+import Team from "./pages/Team/Team";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -27,6 +28,7 @@ function App() {
       <Events />
       <Menu />
       <Booking />
+      <Team />
       {/* <>
         <h1 className="text-[2rem] font-bold text-secondary font-heading">
           Hello kese ho
