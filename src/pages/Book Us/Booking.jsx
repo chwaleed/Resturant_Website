@@ -4,24 +4,24 @@ import Button2 from "../../compnents/button2";
 
 function Booking() {
   return (
-    <div className="mt-[8rem]  px-[10rem]">
-      <div className="flex  justify-center ">
-        <div className="w-[10rem]  bg-light h-[35rem]">
+    <div className="mt-[8rem] flex justify-center   ">
+      <div className="flex lg:w-[90rem] justify-center ">
+        <div className="w-[20rem] rounded-l-lg  overflow-hidden  bg-light h-[35rem]">
           <img
             src={background}
             className="object-cover opacity-70 w-full h-full "
             alt=""
           />
         </div>
-        <div className="bg-light flex flex-col items-center  h-full">
-          <div className="flex flex-col items-center">
+        <div className="bg-light border-y-primary border-y-[1px]  gap-11 flex flex-col items-center py-24  h-full">
+          <div className="flex flex-col gap-2 items-center">
             <Button2 text={"BOOK US"} x={"px-7"} y={"py-1"} />
             <h1 className="text-[3rem] font-heading ">
               Where you want Our Services
             </h1>
           </div>
           <div className="flex gap-8 justify-center flex-wrap">
-            <select className="border-[2px] rounded-md outline-solid outline-[2rem] outline-primary text-secondary border-solid border-primary px-2 text-[1.2rem] w-[20rem] py-2 ">
+            <select className="border-[2px]  rounded-md outline-solid outline-[2rem] outline-primary text-secondary border-solid border-primary px-2 text-[1.2rem] w-[20rem] py-2 ">
               <option value="" className="border-primary">
                 Select Countary
               </option>
@@ -35,7 +35,7 @@ function Booking() {
                 India
               </option>
             </select>
-            <select className="border-[2px] rounded-md outline-solid outline-[2rem] outline-primary text-secondary border-solid border-primary px-2 text-[1.2rem] w-[20rem] py-2 ">
+            <select className="border-[2px]   rounded-md outline-solid outline-[2rem] outline-primary text-secondary border-solid border-primary px-2 text-[1.2rem] w-[20rem] py-2 ">
               <option value="" className="border-primary">
                 Select City
               </option>
@@ -49,7 +49,7 @@ function Booking() {
                 India
               </option>
             </select>
-            <select className="border-[2px] rounded-md outline-solid outline-[2rem] outline-primary text-secondary border-solid border-primary px-2 text-[1.2rem] w-[20rem] py-2 ">
+            <select className="border-[2px]  rounded-md outline-solid outline-[2rem] outline-primary text-secondary border-solid border-primary px-2 text-[1.2rem] w-[20rem] py-2 ">
               <option value="" className="border-primary">
                 Select Place
               </option>
@@ -106,9 +106,23 @@ function Booking() {
                 Non Vegetarian
               </option>
             </select>
+            <input
+              type="text"
+              placeholder="Your Contact No."
+              className="border-[2px] rounded-md outline-solid outline-[2rem] outline-primary text-secondary border-solid border-primary px-2 text-[1.2rem] w-[20rem] py-2 "
+            />
+            <input
+              type="date"
+              className="border-[2px] rounded-md outline-solid outline-[2rem] outline-primary text-secondary border-solid border-primary px-2 text-[1.2rem] w-[20rem] py-2 "
+            />
+            <input
+              type="text"
+              placeholder="Enter Your Email"
+              className="border-[2px] rounded-md outline-solid outline-[2rem] outline-primary text-secondary border-solid border-primary px-2 text-[1.2rem] w-[20rem] py-2 "
+            />
           </div>
         </div>
-        <div className="w-[10rem]  bg-light h-[35rem]">
+        <div className="w-[20rem] rounded-r-lg overflow-hidden  bg-light h-[35rem]">
           <img
             src={background}
             className="object-cover opacity-70 w-full h-full "
