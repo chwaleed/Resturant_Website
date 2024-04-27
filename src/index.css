@@ -28,3 +28,9 @@
     @apply animate-[border-ping-scale_1.6s_ease-out_infinite];
   }
 }
+
+@layer utilities {
+  .pause {
+    animation-play-state: paused;
+  }
+}

@@ -5,7 +5,7 @@ import { FaStar } from "react-icons/fa";
 
 function TestimonialCard(props) {
   return (
-    <div className="w-[28rem] py-4 rounded-lg relative  px-6 font-body border-[1px] border-solid border-primary bg-light">
+    <div className="w-[20rem] md:w-[28rem] inline-block ml-5 py-4 rounded-lg relative  px-6 font-body border-[1px] border-solid border-primary bg-light">
       <div className="flex gap-4 items-center">
         <img src={props.img} className="rounded-[50%] w-[7rem]" alt="" />
         <h1 className="flex text-[1.6rem] font-semibold flex-col">

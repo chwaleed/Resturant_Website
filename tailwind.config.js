@@ -17,8 +17,16 @@ export default {
       keyframes: {
         crosal: {
           "0%": { transform: "translateX(0)" },
-          "100%": { transform: "rotate(-100%)" },
+          "100%": { transform: "translateX(-100%)" }, // Translation without rotation
         },
+        crosal2: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(100%)" }, // Translation without rotation
+        },
+      },
+      animation: {
+        crosalAnimate: "crosal 30s linear infinite", // Define animation class
+        crosalAnimate2: "crosal2 30s linear infinite",
       },
     },
   },
