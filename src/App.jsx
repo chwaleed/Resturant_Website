@@ -15,6 +15,7 @@ import Events from "./pages/Events/Events";
 import Menu from "./pages/Menu/Menu";
 import Booking from "./pages/Book Us/Booking";
 import Team from "./pages/Team/Team";
+import Testimonials from "./pages/Testimonials/Testimonials";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -29,6 +30,7 @@ function App() {
       <Menu />
       <Booking />
       <Team />
+      <Testimonials />
       {/* <>
         <h1 className="text-[2rem] font-bold text-secondary font-heading">
           Hello kese ho

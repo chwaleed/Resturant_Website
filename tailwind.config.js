@@ -14,6 +14,12 @@ export default {
         body: ["body", "Arial"],
         heading: ["heading"],
       },
+      keyframes: {
+        crosal: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "rotate(-100%)" },
+        },
+      },
     },
   },
   plugins: [],
