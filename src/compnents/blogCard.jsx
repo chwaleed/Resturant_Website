@@ -1,9 +1,8 @@
 import React from "react";
-import img1 from "../assets/Images/blog-1.jpg";
 
 function BlogCard(props) {
   return (
-    <div className="group m-28 font-body flex flex-col  items-center w-[29rem]  overflow-hidden ">
+    <div className="group  font-body flex flex-col  items-center w-[28rem]  overflow-hidden ">
       <div className="w-full rounded-xl overflow-hidden">
         <img
           src={props.img}
