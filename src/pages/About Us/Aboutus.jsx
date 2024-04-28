@@ -11,7 +11,7 @@ import { FaPlayCircle } from "react-icons/fa";
 
 function Aboutus() {
   return (
-    <div className="w-full py-36 overflow-hidden">
+    <div className="w-full pt-36 overflow-hidden">
       <div className="flex lg:flex-row flex-col lg:px-4 justify-center items-center gap-6 md:gap-10 font-body">
         <img
           src={about}

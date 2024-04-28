@@ -4,6 +4,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./pages/Footer/Footer";
 import HomePage from "./RenderPages/HomePage";
 import AboutPage from "./RenderPages/AboutPage";
+import ServeciesPage from "./RenderPages/ServeciesPage";
+import EventsPage from "./RenderPages/EventsPage";
+import MenuPage from "./RenderPages/MenuPage";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -16,6 +19,9 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="home" element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />
+          <Route path="services" element={<ServeciesPage />} />
+          <Route path="events" element={<EventsPage />} />
+          <Route path="menu" element={<MenuPage />} />
         </Routes>
         <Footer />
       </Router>

@@ -13,7 +13,7 @@ import { FaUtensils } from "react-icons/fa";
 function Services() {
   // last chnage
   return (
-    <div>
+    <div className="mt-[16rem]">
       <div className="flex flex-col items-center gap-4">
         <Button2 text={"OUR SERVICES"} x={"px-4 bg-light"} y={"py-[2px]"} />
         <h1 className="font-heading text-[3rem] max-md:text-[2rem]">
