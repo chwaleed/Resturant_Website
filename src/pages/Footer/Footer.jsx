@@ -129,9 +129,22 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="bg-dark">
-        <h1>
-          <FaCopyright />{" "}
+      <div className="bg-dark px-[5%]">
+        <h1 className="flex items-center text-[1.1rem]     tracking-wider text-white">
+          <FaCopyright className="mr-2" />
+          <a href="https://dev-waleed.netlify.app/" className="text-primary">
+            Dev-Waleed
+          </a>
+          ,All rights reserved.
+        </h1>
+        <h1 className=" text-[1.1rem]     tracking-wider text-white">
+          Developed By{" "}
+          <a
+            href="https://dev-waleed.netlify.app/"
+            className="text-primary underline"
+          >
+            Muhammad Waleed
+          </a>{" "}
         </h1>
       </div>
     </div>
