@@ -129,19 +129,24 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="bg-dark px-[5%]">
-        <h1 className="flex items-center text-[1.1rem]     tracking-wider text-white">
+      <div className="bg-dark flex justify-between items-center gap-5 max-md:flex-col py-[1.7rem] px-[7%]">
+        <h1 className="flex items-center text-nowrap  md:text-[1.1rem]     tracking-wider text-white">
           <FaCopyright className="mr-2" />
-          <a href="https://dev-waleed.netlify.app/" className="text-primary">
+          <a
+            href="https://dev-waleed.netlify.app/"
+            target="_blank"
+            className="text-primary text-nowrap hover:opacity-80"
+          >
             Dev-Waleed
           </a>
           ,All rights reserved.
         </h1>
-        <h1 className=" text-[1.1rem]     tracking-wider text-white">
+        <h1 className=" md:text-[1.1rem]  text-nowrap     tracking-wider text-white">
           Developed By{" "}
           <a
             href="https://dev-waleed.netlify.app/"
-            className="text-primary underline"
+            target="_blank"
+            className="border-b-[1px] hover:opacity-80 text-primary border-white  "
           >
             Muhammad Waleed
           </a>{" "}
