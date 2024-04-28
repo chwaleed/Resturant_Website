@@ -9,8 +9,10 @@ function Blogs() {
   return (
     <div className="mt-[14rem] flex flex-col gap-4 items-center">
       <Button2 text={"OUR BLOG"} x={"px-4"} y={"py-1"} />
-      <h1 className="text-[3.7rem] font-heading ">Be First Who Read News</h1>
-      <div className="mt-8 flex-wrap flex gap-5">
+      <h1 className="text-center text-[2rem] md:text-[3.7rem] font-heading ">
+        Be First Who Read News
+      </h1>
+      <div className="mt-8 flex-wrap justify-center items-center md:px-6 flex gap-5">
         <BlogCard img={img1} />
         <BlogCard img={img2} />
         <BlogCard img={img3} />
