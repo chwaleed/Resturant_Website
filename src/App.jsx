@@ -7,8 +7,8 @@ import AboutPage from "./RenderPages/AboutPage";
 import ServeciesPage from "./RenderPages/ServeciesPage";
 import EventsPage from "./RenderPages/EventsPage";
 import MenuPage from "./RenderPages/MenuPage";
-import Page from "./compnents/Page";
 import BookingPage from "./RenderPages/BookingPage";
+import OurBlogPage from "./RenderPages/OurBlogPage";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -26,6 +26,7 @@ function App() {
           <Route path="menu" element={<MenuPage />} />
           <Route path="pages/">
             <Route path="booking" element={<BookingPage />} />
+            <Route path="our-blogs" element={<OurBlogPage />} />
           </Route>
         </Routes>
         <Footer />
