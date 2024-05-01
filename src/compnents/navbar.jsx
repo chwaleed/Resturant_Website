@@ -4,6 +4,7 @@ import { FaSearch } from "react-icons/fa";
 import { FaChevronDown } from "react-icons/fa";
 import { IoMdMenu } from "react-icons/io";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [active, setActive] = useState(0);
@@ -11,13 +12,38 @@ function Navbar() {
   const [animate, setAnimate] = useState(false);
   const [menu, setMenu] = useState(true);
   const [menu1, setMenu1] = useState(true);
+  const pageMenu = [
+    {
+      value: "Booking",
+      link: "booking",
+    },
+    {
+      value: "Our Blog",
+      link: "our-blogs",
+    },
+    {
+      value: "Our Team",
+      link: "our-team",
+    },
+    {
+      value: "Testimonials",
+      link: "testimonial",
+    },
+    {
+      value: "404 Page",
+      link: "page-404",
+    },
+  ];
 
   return (
     <div className=" bg-light py-[1.4rem] border-b-[1px] border-opacity-10 border-secondary font-body flex items-center max-md:flex-col max-md:items-start justify-between px-8 md:px-0 md:justify-evenly">
       <div className="flex justify-between items-center max-md:w-full">
-        <h1 className="font-heading text-[2rem] md:text-[2.6rem] font-semibold">
-          <span className="text-primary">Cater</span>Sera
-        </h1>
+        <Link to={"/"}>
+          {" "}
+          <h1 className="font-heading text-[2rem] md:text-[2.6rem] font-semibold">
+            <span className="text-primary">Cater</span>Sera
+          </h1>
+        </Link>
         <IoMdMenu
           onClick={() => setMenu((prev) => !prev)}
           className="md:hidden text-[2rem]"
@@ -63,45 +89,43 @@ function Navbar() {
                     menu1 && "max-md:hidden"
                   } max-md:left-0 max-md:mt-2  origin-top scale-y-0  max-md:relative       overflow-hidden  flex   transition duration-[0.3s]   flex-col py-4 rounded-lg absolute bg-light border-[1px] border-secondary border-opacity-50 w-[10rem] left-[-20%] top-[150%] `}
                 >
-                  {[
-                    "Booking",
-                    "Our Blog",
-                    "Our Team",
-                    "Testimonials",
-                    "404 Page",
-                  ].map((item, index) => (
-                    <li
-                      onClick={() => {
-                        setActive(5),
-                          setActive2(index),
-                          setMenu((prev) => !prev);
-                      }}
-                      className={`${
-                        active2 === index ? "bg-primary text-white" : "none"
-                      }  hover:text-white hover:bg-primary py-2 px-4`}
-                    >
-                      {item}
-                    </li>
+                  {pageMenu.map((item, index) => (
+                    <Link to={`/pages/${item.link}`}>
+                      <li
+                        onClick={() => {
+                          setActive(5),
+                            setActive2(index),
+                            setMenu((prev) => !prev);
+                        }}
+                        className={`${
+                          active2 === index ? "bg-primary text-white" : "none"
+                        }  hover:text-white hover:bg-primary py-2 px-4`}
+                      >
+                        {item.value}
+                      </li>
+                    </Link>
                   ))}
                 </ul>
               </li>
             );
           } else {
             return (
-              <li
-                key={index}
-                onClick={() => {
-                  setActive(index),
-                    setMenu((prev) => !prev),
-                    setActive2(null),
-                    setMenu1(true);
-                }}
-                className={`${
-                  index === active ? "text-primary" : "text-secondary"
-                } capitalize hover:text-primary transition duration-200 text-[1.06rem] font-semibold `}
-              >
-                {item}
-              </li>
+              <Link to={`/${item}`}>
+                <li
+                  key={index}
+                  onClick={() => {
+                    setActive(index),
+                      setMenu((prev) => !prev),
+                      setActive2(null),
+                      setMenu1(true);
+                  }}
+                  className={`${
+                    index === active ? "text-primary" : "text-secondary"
+                  } capitalize hover:text-primary transition duration-200 text-[1.06rem] font-semibold `}
+                >
+                  {item}
+                </li>
+              </Link>
             );
           }
         })}
