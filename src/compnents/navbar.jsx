@@ -63,22 +63,26 @@ function Navbar() {
                     menu1 && "max-md:hidden"
                   } max-md:left-0 max-md:mt-2  origin-top scale-y-0  max-md:relative       overflow-hidden  flex   transition duration-[0.3s]   flex-col py-4 rounded-lg absolute bg-light border-[1px] border-secondary border-opacity-50 w-[10rem] left-[-20%] top-[150%] `}
                 >
-                  {["Booking", "Our Blog", "Our Team", "Testimonials"].map(
-                    (item, index) => (
-                      <li
-                        onClick={() => {
-                          setActive(5),
-                            setActive2(index),
-                            setMenu((prev) => !prev);
-                        }}
-                        className={`${
-                          active2 === index ? "bg-primary text-white" : "none"
-                        }  hover:text-white hover:bg-primary py-2 px-4`}
-                      >
-                        {item}
-                      </li>
-                    )
-                  )}
+                  {[
+                    "Booking",
+                    "Our Blog",
+                    "Our Team",
+                    "Testimonials",
+                    "404 Page",
+                  ].map((item, index) => (
+                    <li
+                      onClick={() => {
+                        setActive(5),
+                          setActive2(index),
+                          setMenu((prev) => !prev);
+                      }}
+                      className={`${
+                        active2 === index ? "bg-primary text-white" : "none"
+                      }  hover:text-white hover:bg-primary py-2 px-4`}
+                    >
+                      {item}
+                    </li>
+                  ))}
                 </ul>
               </li>
             );

@@ -10,6 +10,9 @@ import MenuPage from "./RenderPages/MenuPage";
 import BookingPage from "./RenderPages/BookingPage";
 import OurBlogPage from "./RenderPages/OurBlogPage";
 import OurTeamPage from "./RenderPages/OurTeamPage";
+import TestimonialsPage from "./RenderPages/TestimonialsPage";
+import ContactPage from "./RenderPages/ContactPage";
+import Page404 from "./RenderPages/404Page";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -29,7 +32,10 @@ function App() {
             <Route path="booking" element={<BookingPage />} />
             <Route path="our-blogs" element={<OurBlogPage />} />
             <Route path="team" element={<OurTeamPage />} />
+            <Route path="testimonial" element={<TestimonialsPage />} />
+            <Route path="page-404" element={<Page404 />} />
           </Route>
+          <Route path="contact" element={<ContactPage />} />
         </Routes>
         <Footer />
       </Router>
