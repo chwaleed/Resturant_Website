@@ -10,10 +10,6 @@ import fact from "../../assets/Images/fact.jpg";
 import { FaPlayCircle } from "react-icons/fa";
 import { motion, stagger } from "framer-motion";
 
-const CardVarient = {
-  intitial: {},
-};
-
 function Aboutus() {
   const aboutCard = [
     {
@@ -101,7 +97,17 @@ function Aboutus() {
       <div className="flex lg:flex-row flex-col justify-center pt-[10rem] items-center gap-6">
         <div className="flex md:flex-row flex-col max-md:w-full max-md:px-10  gap-6">
           {aboutCard.map((item, index) => (
-            <motion.div className="bg-primary  md:w-[14rem] h-[14rem] rounded-lg flex flex-col justify-center items-center">
+            <motion.div
+              initial={{ y: "100%", opacity: 0 }}
+              whileInView={{ y: 0, opacity: 100 }}
+              transition={{
+                type: "spring",
+                stiffness: 50,
+                delay: index * 0.2,
+              }}
+              viewport={{ once: true }}
+              className="bg-primary  md:w-[14rem] h-[14rem] rounded-lg flex flex-col justify-center items-center"
+            >
               {item.img}
               <h1 className="font-heading max-md:text-[2.5rem] font-bold text-[4rem]">
                 {item.number}
@@ -110,14 +116,23 @@ function Aboutus() {
             </motion.div>
           ))}
         </div>
-        <div className="relative max-md:px-6">
+        <motion.div
+          initial={{ y: "100%", opacity: 0 }}
+          whileInView={{ y: 0, opacity: 100 }}
+          transition={{
+            type: "spring",
+            stiffness: 50,
+          }}
+          viewport={{ once: true }}
+          className="relative max-md:px-6"
+        >
           <img
             src={fact}
             className="rounded-xl md:w-[42rem] lg:w-[33rem]"
             alt=""
           />
           <FaPlayCircle className="text-white border-ping-scale z-10   bg-dark rounded-[50%] animate-[loadBorder_2s_ease-out_infinite]    overflow-hidden  absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-[5rem]" />
-        </div>
+        </motion.div>
       </div>
     </div>
   );
