@@ -9,8 +9,67 @@ import { FaWineGlassAlt } from "react-icons/fa";
 import { FaWalking } from "react-icons/fa";
 import { FaWheelchair } from "react-icons/fa";
 import { FaUtensils } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 function Services() {
+  const servicesCard = [
+    {
+      title: "Wedding Services",
+      dic: "Contrary to popular belief, ipsum is not simply random.",
+      logo: (
+        <FaCheese className="text-[7rem] group-hover:text-dark  transition duration-[0.7s] text-primary" />
+      ),
+    },
+    {
+      title: "Corporate Catering",
+      dic: "Contrary to popular belief, ipsum is not simply random.",
+      logo: (
+        <FaPizzaSlice className="text-[7rem] group-hover:text-dark  transition duration-[0.7s] text-primary" />
+      ),
+    },
+    {
+      title: "Cocktail Reception",
+      dic: "Contrary to popular belief, ipsum is not simply random.",
+      logo: (
+        <FaHotdog className="text-[7rem] group-hover:text-dark  transition duration-[0.7s] text-primary" />
+      ),
+    },
+    {
+      title: "Bento Catering",
+      dic: "Contrary to popular belief, ipsum is not simply random.",
+      logo: (
+        <FaHamburger className="text-[7rem] group-hover:text-dark  transition duration-[0.7s] text-primary" />
+      ),
+    },
+    {
+      title: "Pub Party",
+      dic: "Contrary to popular belief, ipsum is not simply random.",
+      logo: (
+        <FaWineGlassAlt className="text-[7rem] group-hover:text-dark  transition duration-[0.7s] text-primary" />
+      ),
+    },
+    {
+      title: "Home Delivery",
+      dic: "Contrary to popular belief, ipsum is not simply random.",
+      logo: (
+        <FaWalking className="text-[7rem] group-hover:text-dark  transition duration-[0.7s] text-primary" />
+      ),
+    },
+    {
+      title: "Sit-down Catering",
+      dic: "Contrary to popular belief, ipsum is not simply random.",
+      logo: (
+        <FaWheelchair className="text-[7rem] group-hover:text-dark  transition duration-[0.7s] text-primary" />
+      ),
+    },
+    {
+      title: "Buffet Catering",
+      dic: "Contrary to popular belief, ipsum is not simply random.",
+      logo: (
+        <FaUtensils className="text-[7rem] group-hover:text-dark  transition duration-[0.7s] text-primary" />
+      ),
+    },
+  ];
   // last chnage
   return (
     <div className="mt-[16rem]">
@@ -20,62 +79,14 @@ function Services() {
           What We Offer
         </h1>
         <div className="flex flex-wrap gap-7 w-[100%] md:flex-row flex-col justify-center items-center px-10">
-          <ServicesCard
-            title={"Wedding Services"}
-            dic={"Contrary to popular belief, ipsum is not simply random."}
-            logo={
-              <FaCheese className="text-[7rem] group-hover:text-dark  transition duration-[0.7s] text-primary" />
-            }
-          />
-          <ServicesCard
-            title={"Corporate Catering"}
-            dic={"Contrary to popular belief, ipsum is not simply random."}
-            logo={
-              <FaPizzaSlice className="text-[7rem] group-hover:text-dark  transition duration-[0.7s] text-primary" />
-            }
-          />
-          <ServicesCard
-            title={"Cocktail Reception"}
-            dic={"Contrary to popular belief, ipsum is not simply random."}
-            logo={
-              <FaHotdog className="text-[7rem] group-hover:text-dark  transition duration-[0.7s] text-primary" />
-            }
-          />
-          <ServicesCard
-            title={"Bento Catering"}
-            dic={"Contrary to popular belief, ipsum is not simply random."}
-            logo={
-              <FaHamburger className="text-[7rem] group-hover:text-dark  transition duration-[0.7s] text-primary" />
-            }
-          />
-          <ServicesCard
-            title={"Pub Party"}
-            dic={"Contrary to popular belief, ipsum is not simply random."}
-            logo={
-              <FaWineGlassAlt className="text-[7rem] group-hover:text-dark  transition duration-[0.7s] text-primary" />
-            }
-          />
-          <ServicesCard
-            title={"Home Delivery"}
-            dic={"Contrary to popular belief, ipsum is not simply random."}
-            logo={
-              <FaWalking className="text-[7rem] group-hover:text-dark  transition duration-[0.7s] text-primary" />
-            }
-          />
-          <ServicesCard
-            title={"Sit-down Catering"}
-            dic={"Contrary to popular belief, ipsum is not simply random."}
-            logo={
-              <FaWheelchair className="text-[7rem] group-hover:text-dark  transition duration-[0.7s] text-primary" />
-            }
-          />
-          <ServicesCard
-            title={"Buffet Catering"}
-            dic={"Contrary to popular belief, ipsum is not simply random."}
-            logo={
-              <FaUtensils className="text-[7rem] group-hover:text-dark  transition duration-[0.7s] text-primary" />
-            }
-          />
+          {servicesCard.map((item, index) => (
+            <ServicesCard
+              index={index}
+              title={item.title}
+              dic={item.dic}
+              logo={item.logo}
+            />
+          ))}
         </div>
       </div>
     </div>

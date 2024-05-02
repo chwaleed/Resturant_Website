@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 import Button1 from "./button1";
-
+import { motion } from "framer-motion";
 function ServicesCard(props) {
   const [isHovered, setIsHovered] = useState(false);
   return (
-    <div
+    <motion.div
+      initial={{ y: "100%", opacity: 0 }}
+      whileInView={{ y: 0, opacity: 100 }}
+      transition={{
+        type: "spring",
+        stiffness: 50,
+        delay: props.index * 0.1,
+      }}
+      viewport={{ once: true }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={`group   bg-light shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] font-body md:w-[19rem] inline-block relative before:w-full  before:h-full before:absolute before:top-[-100%] before:bg-primary overflow-hidden before:transition overflowhidden before:duration-[1s] before:rounded-2xl  py-5 rounded-md ${
@@ -28,7 +36,7 @@ function ServicesCard(props) {
           bg={isHovered ? " bg-white " : " bg-primary"}
         />
       </div>
-    </div>
+    </motion.div>
   );
 }
 
