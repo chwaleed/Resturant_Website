@@ -8,16 +8,60 @@ import { FaUsersCog } from "react-icons/fa";
 import { FaCheck } from "react-icons/fa";
 import fact from "../../assets/Images/fact.jpg";
 import { FaPlayCircle } from "react-icons/fa";
+import { motion, stagger } from "framer-motion";
+
+const CardVarient = {
+  intitial: {},
+};
 
 function Aboutus() {
+  const aboutCard = [
+    {
+      number: 689,
+      text: "Happy Customers",
+      img: (
+        <FaUsers className="text-white text-[4.6rem] max-md:text-[3.7rem]" />
+      ),
+    },
+    {
+      number: 107,
+      text: "Expert Chefs",
+      img: (
+        <FaUsersCog className="text-white text-[4.6rem] max-md:text-[3.7rem]" />
+      ),
+    },
+    {
+      number: 253,
+      text: "Events Complete",
+      img: (
+        <FaCheck className="text-white text-[4.6rem] max-md:text-[3.7rem]" />
+      ),
+    },
+  ];
+
   return (
     <div className="w-full pt-36 overflow-hidden">
       <div className="flex lg:flex-row flex-col lg:px-4 justify-center items-center gap-6 md:gap-10 font-body">
-        <img
+        <motion.img
+          initial={{ y: "100%", opacity: 0 }}
+          whileInView={{ y: 0, opacity: 100 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.2, type: "spring", stiffness: 50 }}
           src={about}
           className="lg:h-[27rem] xl:h-[32rem] h-[18rem] md:h-[25rem]  rounded-xl"
         />
-        <div className="flex w-[85%] md:w-full md:px-28 gap-4 md:gap-8 lg:px-0 lg:w-[60%] xl:w-[43%]  flex-col lg:gap-3 xl:gap-6 py-[2rem] items-start">
+        <motion.div
+          initial={{ y: "100%", opacity: 0 }}
+          whileInView={{ y: 0, opacity: 100 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.2,
+            type: "spring",
+            stiffness: 50,
+            delay: 0.2,
+          }}
+          className="flex w-[85%] md:w-full md:px-28 gap-4 md:gap-8 lg:px-0 lg:w-[60%] xl:w-[43%]  flex-col lg:gap-3 xl:gap-6 py-[2rem] items-start"
+        >
           <Button2 text={"ABOUT US"} x={"px-4 bg-light"} y={"py-[2px] "} />
           <h1 className="font-heading text-[2rem] md:text-[3rem]">
             Trusted By 200 + satisfied clients
@@ -52,31 +96,19 @@ function Aboutus() {
             </div>
           </div>
           <Button1 text={`About Us`} x={"px-14"} bg={"bg-primary"} y={"py-4"} />
-        </div>
+        </motion.div>
       </div>
       <div className="flex lg:flex-row flex-col justify-center pt-[10rem] items-center gap-6">
         <div className="flex md:flex-row flex-col max-md:w-full max-md:px-10  gap-6">
-          <div className="bg-primary  md:w-[14rem] h-[14rem] rounded-lg flex flex-col justify-center items-center">
-            <FaUsers className="text-white text-[4.6rem] max-md:text-[3.7rem]" />
-            <h1 className="font-heading max-md:text-[2.5rem] font-bold text-[4rem]">
-              689
-            </h1>
-            <h1 className="uppercase font-semibold">Happy Customers</h1>
-          </div>
-          <div className="bg-primary md:w-[14rem] h-[14rem] rounded-lg flex flex-col justify-center items-center">
-            <FaUsersCog className="text-white text-[4.6rem] max-md:text-[3.7rem]" />
-            <h1 className="font-heading font-bold text-[4rem] max-md:text-[2.5rem]">
-              107
-            </h1>
-            <h1 className="uppercase font-semibold">Expert Chefs</h1>
-          </div>
-          <div className="bg-primary md:w-[14rem] h-[14rem] rounded-lg flex flex-col justify-center items-center">
-            <FaCheck className="text-white text-[4.6rem] max-md:text-[3.7rem]" />
-            <h1 className="font-heading font-bold text-[4rem] max-md:text-[2.5rem]">
-              253
-            </h1>
-            <h1 className="uppercase font-semibold">Events Complete</h1>
-          </div>
+          {aboutCard.map((item, index) => (
+            <motion.div className="bg-primary  md:w-[14rem] h-[14rem] rounded-lg flex flex-col justify-center items-center">
+              {item.img}
+              <h1 className="font-heading max-md:text-[2.5rem] font-bold text-[4rem]">
+                {item.number}
+              </h1>
+              <h1 className="uppercase font-semibold">{item.text}</h1>
+            </motion.div>
+          ))}
         </div>
         <div className="relative max-md:px-6">
           <img

@@ -13,7 +13,12 @@ function Hero() {
             className="flex flex-col gap-5 items-start"
             initial={{ y: "-100vh" }}
             animate={{ y: 0 }}
-            transition={{ duration: 3, type: "spring", stiffness: 80 }}
+            transition={{
+              duration: 3,
+              ease: "easeIn",
+              type: "spring",
+              stiffness: 80,
+            }}
           >
             <Button2 text={"WELCOME TO CATERSERV"} x={"px-4"} y={"py-[3px]"} />
             <h1
