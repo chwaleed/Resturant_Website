@@ -15,10 +15,20 @@ import menu3 from "../../assets/Images/menu-03.jpg";
 import menu4 from "../../assets/Images/menu-04.jpg";
 import menu5 from "../../assets/Images/menu-05.jpg";
 import menu6 from "../../assets/Images/menu-06.jpg";
+import { motion } from "framer-motion";
 
 function Footer() {
   return (
-    <div className="mt-[15rem] font-body">
+    <motion.div
+      initial={{ y: "100%", opacity: 0 }}
+      whileInView={{ y: 0, opacity: 100 }}
+      transition={{
+        type: "spring",
+        stiffness: 50,
+      }}
+      viewport={{ once: true }}
+      className="mt-[15rem] font-body"
+    >
       <div className="bg-light grid lg:grid-cols-4  md:grid-cols-2 px-[10%] md:px-[8%] lg:px-[5%] py-16 gap-6">
         <div className="flex flex-col gap-5">
           <h1 className="font-heading text-[2.7rem] md:text-[2.8rem] font-semibold">
@@ -152,7 +162,7 @@ function Footer() {
           </a>{" "}
         </h1>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

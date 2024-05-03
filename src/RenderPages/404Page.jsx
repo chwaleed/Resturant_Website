@@ -2,12 +2,22 @@ import React from "react";
 import Page from "../compnents/Page";
 import { FaTriangleExclamation } from "react-icons/fa6";
 import Button1 from "../compnents/button1";
+import { motion } from "framer-motion";
 
 function Page404() {
   return (
     <>
       <Page text1={"Pages / "} text2={"404 Error"} title={"404 Error"} />
-      <div className="flex flex-col font-body items-center gap-4 mt-[10rem] ">
+      <motion.div
+        initial={{ y: "100%", opacity: 0 }}
+        whileInView={{ y: 0, opacity: 100 }}
+        transition={{
+          type: "spring",
+          stiffness: 50,
+        }}
+        viewport={{ once: true }}
+        className="flex flex-col font-body items-center gap-4 mt-[10rem] "
+      >
         <FaTriangleExclamation className="text-primary  text-[4rem] md:text-[6rem]" />
         <h1 className="text-[4rem] md:text-[6rem] font-heading">404</h1>
         <h1 className="text-[2rem] md:text-[3rem] font-heading">
@@ -22,7 +32,7 @@ function Page404() {
           x={"px-12"}
           y={"py-4 bg-primary text-[1.2rem] mt-4"}
         />
-      </div>
+      </motion.div>
     </>
   );
 }

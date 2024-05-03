@@ -5,6 +5,18 @@ import img2 from "../../assets/Images/blog-2.jpg";
 import img3 from "../../assets/Images/blog-3.jpg";
 import Button2 from "../../compnents/button2";
 
+const blogCard = [
+  {
+    img: img1,
+  },
+  {
+    img: img2,
+  },
+  {
+    img: img3,
+  },
+];
+
 function Blogs() {
   return (
     <div className="mt-[14rem] flex flex-col gap-4 items-center">
@@ -13,9 +25,9 @@ function Blogs() {
         Be First Who Read News
       </h1>
       <div className="mt-8 flex-wrap justify-center items-center md:px-6 flex gap-5">
-        <BlogCard img={img1} />
-        <BlogCard img={img2} />
-        <BlogCard img={img3} />
+        {blogCard.map((item, index) => (
+          <BlogCard img={item.img} index={index} key={index} />
+        ))}
       </div>
     </div>
   );

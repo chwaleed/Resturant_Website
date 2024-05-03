@@ -1,8 +1,19 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 function BlogCard(props) {
   return (
-    <div className="group  font-body flex flex-col    items-center max-md:w-[90%] lg:w-[19rem] xl:w-[28rem]  overflow-hidden ">
+    <motion.div
+      initial={{ y: "100%", opacity: 0 }}
+      whileInView={{ y: 0, opacity: 100 }}
+      transition={{
+        type: "spring",
+        stiffness: 50,
+        delay: props.index * 0.1,
+      }}
+      viewport={{ once: true }}
+      className="group  font-body flex flex-col    items-center max-md:w-[90%] lg:w-[19rem] xl:w-[28rem]  overflow-hidden "
+    >
       <div className="w-full rounded-xl  overflow-hidden">
         <img
           src={props.img}
@@ -19,7 +30,7 @@ function BlogCard(props) {
           How to get more taste in your food
         </h1>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
