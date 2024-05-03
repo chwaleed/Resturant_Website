@@ -9,6 +9,7 @@ import event6 from "../../assets/Images/event-6.jpg";
 import event7 from "../../assets/Images/event-7.jpg";
 import event8 from "../../assets/Images/event-8.jpg";
 import GalleryCard from "../../compnents/galleryCard";
+import { motion, useInView } from "framer-motion";
 
 function Events() {
   const [active, setActive] = useState(0);
@@ -77,47 +78,54 @@ function Events() {
   };
 
   return (
-    <div className="mt-40 md:mt-[15rem]   font-body md:gap-4 flex flex-col items-center">
-      <Button2 text={"LATEST EVENTS"} x={"px-7"} y={"py-1"} />
-      <h1 className="font-heading text-center px-10 max-md:mt-4 text-[1.8rem] md:text-[2.5rem] lg:text-[3.5rem]">
-        Our Social & Professional Events Gallery
-      </h1>
-      <div className="flex mt-4 items-center justify-center md:flex-row flex-wrap gap-6 md:px-10 md:gap-10 md:mt-6">
-        <Button2
-          click={handleClick}
-          text={"All Events"}
-          x={"w-[10rem] "}
-          y={`py-2 ${active === 0 ? "bg-primary" : "bg-light"}`}
-        />
-        <Button2
-          click={handleClick}
-          text={"Wedding"}
-          x={"w-[10rem] "}
-          y={`py-2 ${active === 1 ? "bg-primary" : "bg-light"}`}
-        />
-        <Button2
-          click={handleClick}
-          text={"Corporate"}
-          x={"w-[10rem] "}
-          y={`py-2 ${active === 2 ? "bg-primary" : "bg-light"}`}
-        />
-        <Button2
-          click={handleClick}
-          text={"Cocktail"}
-          x={"w-[10rem] "}
-          y={`py-2 ${active === 3 ? "bg-primary" : "bg-light"}`}
-        />
-        <Button2
-          click={handleClick}
-          text={"Buffet"}
-          x={"w-[10rem] "}
-          y={`py-2 ${active === 4 ? "bg-primary" : "bg-light"}`}
-        />
-      </div>
-      <div className="grid max-md:grid-cols-1 md:px-10 mt-10 place-items-center grid-cols-4 gap-6 auto-rows-min    grid-flow-">
-        {list.map((event, index) => (
-          <GalleryCard index={index} img={event.img} text={event.title} />
-        ))}
+    <div className="pt-40 md:pt-[15rem]">
+      <div className="  font-body md:gap-4 flex flex-col items-center">
+        <Button2 text={"LATEST EVENTS"} x={"px-7"} y={"py-1"} />
+        <h1 className="font-heading text-center px-10 max-md:mt-4 text-[1.8rem] md:text-[2.5rem] lg:text-[3.5rem]">
+          Our Social & Professional Events Gallery
+        </h1>
+        <div className="flex mt-4 items-center justify-center md:flex-row flex-wrap gap-6 md:px-10 md:gap-10 md:mt-6">
+          <Button2
+            click={handleClick}
+            text={"All Events"}
+            x={"w-[10rem] "}
+            y={`py-2 ${active === 0 ? "bg-primary" : "bg-light"}`}
+          />
+          <Button2
+            click={handleClick}
+            text={"Wedding"}
+            x={"w-[10rem] "}
+            y={`py-2 ${active === 1 ? "bg-primary" : "bg-light"}`}
+          />
+          <Button2
+            click={handleClick}
+            text={"Corporate"}
+            x={"w-[10rem] "}
+            y={`py-2 ${active === 2 ? "bg-primary" : "bg-light"}`}
+          />
+          <Button2
+            click={handleClick}
+            text={"Cocktail"}
+            x={"w-[10rem] "}
+            y={`py-2 ${active === 3 ? "bg-primary" : "bg-light"}`}
+          />
+          <Button2
+            click={handleClick}
+            text={"Buffet"}
+            x={"w-[10rem] "}
+            y={`py-2 ${active === 4 ? "bg-primary" : "bg-light"}`}
+          />
+        </div>
+        <div className="grid max-md:grid-cols-1 md:px-10 mt-10 place-items-center grid-cols-4 gap-6 auto-rows-min    grid-flow-">
+          {list.map((event, index) => (
+            <GalleryCard
+              index={index}
+              key={index}
+              img={event.img}
+              text={event.title}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
