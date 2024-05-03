@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import event1 from "../assets/Images/event-1.jpg";
 import { FaSearchPlus } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
+import { motion } from "framer-motion";
 
-function GalleryCard({ img, text }) {
+function GalleryCard({ img, text, index }) {
   const [showPreview, setShowPreview] = useState(false);
   const handlePreviewClick = () => {
     setShowPreview(!showPreview);
@@ -14,7 +15,17 @@ function GalleryCard({ img, text }) {
     }
   };
   return (
-    <div className="group max-md:w-[70%] w-[13rem] xl:w-[20rem] relative rounded-md overflow-hidden  before:h-full before:w-full before:opacity-0 hover:before:opacity-70 hover:before:transition hover:before:duration-[0.6s] before:bg-primary before:absolute">
+    <motion.div
+      initial={{ y: "100%", opacity: 0 }}
+      whileInView={{ y: 0, opacity: 100 }}
+      transition={{
+        type: "spring",
+        stiffness: 50,
+        delay: index * 0.1,
+      }}
+      viewport={{ once: true }}
+      className="group max-md:w-[70%] w-[13rem] xl:w-[20rem] relative rounded-md overflow-hidden  before:h-full before:w-full before:opacity-0 hover:before:opacity-70 hover:before:transition hover:before:duration-[0.6s] before:bg-primary before:absolute"
+    >
       <h1 className="absolute opacity-0 transition duration-[0.6s] group-hover:opacity-100 font-body text-[1.6rem] font-semibold left-4 top-4">
         {text}
       </h1>
@@ -37,7 +48,7 @@ function GalleryCard({ img, text }) {
           </div>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }
 

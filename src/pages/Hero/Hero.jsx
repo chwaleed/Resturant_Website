@@ -11,10 +11,9 @@ function Hero() {
         <div className="flex w-full flex-col items-start gap-5">
           <motion.div
             className="flex flex-col gap-5 items-start"
-            initial={{ y: "-100vh" }}
+            initial={{ y: "-70vh" }}
             animate={{ y: 0 }}
             transition={{
-              duration: 3,
               ease: "easeIn",
               type: "spring",
               stiffness: 80,

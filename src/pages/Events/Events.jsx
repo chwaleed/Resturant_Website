@@ -116,7 +116,7 @@ function Events() {
       </div>
       <div className="grid max-md:grid-cols-1 md:px-10 mt-10 place-items-center grid-cols-4 gap-6 auto-rows-min    grid-flow-">
         {list.map((event, index) => (
-          <GalleryCard img={event.img} text={event.title} />
+          <GalleryCard index={index} img={event.img} text={event.title} />
         ))}
       </div>
     </div>
