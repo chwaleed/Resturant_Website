@@ -138,12 +138,14 @@ function Menu() {
         />
       </div>
       <div className="flex flex-wrap pb-[5rem] mt-[3rem] gap-10 justify-center items-center ">
-        {list.map((item) => (
+        {list.map((item, index) => (
           <MenuCard
             img={item.img}
             title={item.title}
             price={item.price}
             text={item.text}
+            index={index}
+            key={index}
           />
         ))}
       </div>

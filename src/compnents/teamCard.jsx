@@ -3,12 +3,23 @@ import { RiShareFill } from "react-icons/ri";
 import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 import Button1 from "./button1";
 
 function TeamCard(props) {
   return (
-    <div className="group relative transition duration-[0.8s] md:w-[17rem] lg:w-[20rem] hover:bg-primary rounded-md overflow-hidden   font-body flex-col flex gap-3 bg-dark">
+    <motion.div
+      initial={{ y: "100%", opacity: 0 }}
+      whileInView={{ y: 0, opacity: 100 }}
+      transition={{
+        type: "spring",
+        stiffness: 50,
+        delay: props.index * 0.1,
+      }}
+      viewport={{ once: true }}
+      className="group relative transition duration-[0.8s] md:w-[17rem] lg:w-[20rem] hover:bg-primary rounded-md overflow-hidden   font-body flex-col flex gap-3 bg-dark"
+    >
       <img src={props.img} className="w-full" />
       <div className="flex flex-col gap-1 mb-5 items-center">
         <h1 className="group-hover:text-dark transition duration-[0.8s] text-primary font-semibold text-[1.5rem]">
@@ -52,7 +63,7 @@ function TeamCard(props) {
           />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

@@ -5,10 +5,20 @@ import testi2 from "../../assets/Images/testimonial-2.jpg";
 import testi3 from "../../assets/Images/testimonial-3.jpg";
 import testi4 from "../../assets/Images/testimonial-4.jpg";
 import Button2 from "../../compnents/button2";
+import { motion } from "framer-motion";
 
 function Testimonials() {
   return (
-    <div className="flex flex-col items-center   mt-[10rem] gap-6 px-[7%] overflow-hidden ">
+    <motion.div
+      initial={{ y: "100%", opacity: 0 }}
+      whileInView={{ y: 0, opacity: 100 }}
+      transition={{
+        type: "spring",
+        stiffness: 50,
+      }}
+      viewport={{ once: true }}
+      className="flex flex-col items-center   mt-[10rem] gap-6 px-[7%] overflow-hidden "
+    >
       <Button2 text={"TESTIMONIAL"} x={"px-3"} />
       <h1 className="text-[2.4rem] text-center md:text-[4rem] font-heading">
         What Our Customers says!
@@ -41,7 +51,7 @@ function Testimonials() {
           <TestimonialCard img={testi4} />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

@@ -37,8 +37,13 @@ function Team() {
         We have experienced chef Team
       </h1>
       <div className="flex flex-wrap justify-center   gap-6">
-        {data.map((item) => (
-          <TeamCard img={item.img} text={item.text} name={item.name} />
+        {data.map((item, index) => (
+          <TeamCard
+            img={item.img}
+            index={index}
+            text={item.text}
+            name={item.name}
+          />
         ))}
       </div>
     </div>
