@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button2 from "../../compnents/button2";
 import ServicesCard from "../../compnents/servicesCard";
 import { FaCheese } from "react-icons/fa6";
@@ -70,6 +70,7 @@ function Services() {
       ),
     },
   ];
+  const [inView, setInView] = useState(false);
   // last chnage
   return (
     <div className="mt-[16rem]">
@@ -78,16 +79,34 @@ function Services() {
         <h1 className="font-heading text-[3rem] max-md:text-[2rem]">
           What We Offer
         </h1>
-        <div className="flex flex-wrap gap-7 w-[100%] md:flex-row flex-col justify-center items-center px-10">
+        <motion.div
+          whileInView={() => setInView(true)}
+          className="flex flex-wrap gap-7 w-[100%] md:flex-row flex-col justify-center items-center px-10"
+        >
           {servicesCard.map((item, index) => (
-            <ServicesCard
-              index={index}
-              title={item.title}
-              dic={item.dic}
-              logo={item.logo}
-            />
+            <motion.div
+              initial={{ y: "100%", opacity: 0 }}
+              animate={
+                inView && {
+                  y: 0,
+                  opacity: 1,
+                  transition: {
+                    type: "spring",
+                    stiffness: 50,
+                    delay: index * 0.1,
+                  },
+                }
+              }
+            >
+              <ServicesCard
+                index={index}
+                title={item.title}
+                dic={item.dic}
+                logo={item.logo}
+              />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );
