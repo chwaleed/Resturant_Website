@@ -36,6 +36,7 @@ function App() {
             <Route path="page-404" element={<Page404 />} />
           </Route>
           <Route path="contact" element={<ContactPage />} />
+          <Route path="*" element={<Page404 />} />
         </Routes>
         <Footer />
       </Router>
