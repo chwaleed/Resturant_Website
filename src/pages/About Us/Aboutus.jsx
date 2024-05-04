@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import about from "../../assets/Images/about.jpg";
 import Button2 from "../../compnents/button2";
 import { FaShare } from "react-icons/fa";
@@ -11,6 +11,7 @@ import { FaPlayCircle } from "react-icons/fa";
 import { motion, stagger } from "framer-motion";
 
 function Aboutus() {
+  const [inView, setInView] = useState(false);
   const aboutCard = [
     {
       number: 689,
@@ -37,10 +38,13 @@ function Aboutus() {
 
   return (
     <div className="w-full pt-36 overflow-hidden">
-      <div className="flex lg:flex-row flex-col lg:px-4 justify-center items-center gap-6 md:gap-10 font-body">
+      <motion.div
+        whileInView={() => setInView(true)}
+        className="flex lg:flex-row flex-col lg:px-4 justify-center items-center gap-6 md:gap-10 font-body"
+      >
         <motion.img
           initial={{ y: "100%", opacity: 0 }}
-          whileInView={{ y: 0, opacity: 100 }}
+          animate={inView && { y: 0, opacity: 100 }}
           viewport={{ once: true }}
           transition={{ duration: 0.2, type: "spring", stiffness: 50 }}
           src={about}
@@ -48,8 +52,7 @@ function Aboutus() {
         />
         <motion.div
           initial={{ y: "100%", opacity: 0 }}
-          whileInView={{ y: 0, opacity: 100 }}
-          viewport={{ once: true }}
+          animate={inView && { y: 0, opacity: 100 }}
           transition={{
             duration: 0.2,
             type: "spring",
@@ -93,7 +96,7 @@ function Aboutus() {
           </div>
           <Button1 text={`About Us`} x={"px-14"} bg={"bg-primary"} y={"py-4"} />
         </motion.div>
-      </div>
+      </motion.div>
       <div className="flex lg:flex-row flex-col justify-center pt-[10rem] items-center gap-6">
         <div className="flex md:flex-row flex-col max-md:w-full max-md:px-10  gap-6">
           {aboutCard.map((item, index) => (
