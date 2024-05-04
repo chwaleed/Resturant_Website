@@ -1,21 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import background from "../../assets/Images/background-site.jpg";
 import Button2 from "../../compnents/button2";
 import { motion } from "framer-motion";
 
 function Booking() {
+  const [inView, setInView] = useState(false);
   return (
     <motion.div
-      initial={{ y: "100%", opacity: 0 }}
-      whileInView={{ y: 0, opacity: 100 }}
-      transition={{
-        type: "spring",
-        stiffness: 50,
-      }}
-      viewport={{ once: true }}
+      whileInView={() => setInView(true)}
       className="mt-[8rem] flex justify-center   "
     >
-      <div className="flex w-[90%] md:px-10 lg:w-[90rem] justify-center ">
+      <motion.div
+        initial={{ y: "100%", opacity: 0 }}
+        animate={inView && { y: 0, opacity: 100 }}
+        transition={{
+          type: "spring",
+          stiffness: 50,
+        }}
+        className="flex w-[90%] md:px-10 lg:w-[90rem] justify-center "
+      >
         <div className="w-[20rem] min-h-full rounded-l-lg  overflow-hidden  bg-light h-[35rem]">
           <img
             src={background}
@@ -139,7 +142,7 @@ function Booking() {
             alt=""
           />
         </div>
-      </div>
+      </motion.div>
     </motion.div>
   );
 }
