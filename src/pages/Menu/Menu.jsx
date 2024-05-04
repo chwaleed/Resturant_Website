@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button2 from "../../compnents/button2";
 import menu1 from "../../assets/Images/menu-01.jpg";
 import menu2 from "../../assets/Images/menu-02.jpg";
@@ -11,6 +11,7 @@ import menu8 from "../../assets/Images/menu-08.jpg";
 import menu9 from "../../assets/Images/menu-09.jpg";
 import menu10 from "../../assets/Images/menu-10.jpg";
 import MenuCard from "../../compnents/menuCard";
+import { motion, stagger } from "framer-motion";
 
 let menuData = [
   {
@@ -74,6 +75,8 @@ let menuData = [
 function Menu() {
   const [active, setActive] = useState(0);
   const [list, setList] = useState(menuData);
+  const [inView, setInView] = useState(false);
+  console.log(inView);
 
   const handleClick = (e) => {
     const text = e.target.textContent;
@@ -137,18 +140,36 @@ function Menu() {
           y={`py-3 ${active === 4 ? "bg-primary" : "bg-light"}`}
         />
       </div>
-      <div className="flex flex-wrap pb-[5rem] mt-[3rem] gap-10 justify-center items-center ">
+      <motion.div
+        whileInView={() => setInView(true)}
+        className="flex flex-wrap pb-[5rem] mt-[3rem] gap-10 justify-center items-center "
+      >
         {list.map((item, index) => (
-          <MenuCard
-            img={item.img}
-            title={item.title}
-            price={item.price}
-            text={item.text}
-            index={index}
-            key={index}
-          />
+          <motion.div
+            initial={{ y: "100%", opacity: 0 }}
+            animate={
+              inView && {
+                y: 0,
+                opacity: 1, // Change this to 1
+                transition: {
+                  type: "spring",
+                  stiffness: 50,
+                  delay: index * 0.1,
+                },
+              }
+            }
+          >
+            <MenuCard
+              img={item.img}
+              title={item.title}
+              price={item.price}
+              text={item.text}
+              index={index}
+              key={index}
+            />
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 }

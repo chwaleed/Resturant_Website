@@ -9,10 +9,11 @@ import event6 from "../../assets/Images/event-6.jpg";
 import event7 from "../../assets/Images/event-7.jpg";
 import event8 from "../../assets/Images/event-8.jpg";
 import GalleryCard from "../../compnents/galleryCard";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 
 function Events() {
   const [active, setActive] = useState(0);
+  const [inView, setInView] = useState(false);
 
   let events = [
     {
@@ -116,16 +117,35 @@ function Events() {
             y={`py-2 ${active === 4 ? "bg-primary" : "bg-light"}`}
           />
         </div>
-        <div className="grid max-md:grid-cols-1 md:px-10 mt-10 place-items-center grid-cols-4 gap-6 auto-rows-min    grid-flow-">
+        <motion.div
+          whileInView={() => setInView(true)}
+          className="grid max-md:grid-cols-1 md:px-10 mt-10 place-items-center grid-cols-4 gap-6 auto-rows-min    grid-flow-"
+        >
           {list.map((event, index) => (
-            <GalleryCard
-              index={index}
-              key={index}
-              img={event.img}
-              text={event.title}
-            />
+            <motion.div
+              initial={{ y: "100%", opacity: 0 }}
+              animate={
+                inView && {
+                  y: 0,
+                  opacity: 1, // Change this to 1
+                  transition: {
+                    type: "spring",
+                    stiffness: 50,
+                    delay: index * 0.1,
+                  },
+                }
+              }
+              className="flex justify-center"
+            >
+              <GalleryCard
+                index={index}
+                key={index}
+                img={event.img}
+                text={event.title}
+              />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );
